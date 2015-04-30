@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>KnockoutWinJS</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
+    <script src="/js/knockout-3.0.0.debug.js"></script>
+    <script src="/js/knockout-winjs.js"></script>
+
+    <!-- KnockoutWinJS references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div class="backButtonSpacer"><!--The back button is absolutely positioned in the corner --></div>
+    <br /><br />
+    <h2>AppBar and AppBarCommands</h2>
+    <div>Right click to activate the AppBar</div>
+    <div data-bind="winAppBar: {placement: 'bottom'}">
+        <button data-bind="winAppBarCommand: {label: 'AppBarButton', type: 'button', icon:'add'}"></button>
+    </div>
+
+    <br /><br />
+    <h2>Back Button</h2>
+    <div>Note this only shows up when using WinJS.Navigation</div>
+    <button data-bind="winBackButton"></button>
+
+    <br /><br />
+    <h2>Date Picker</h2>
+    <div data-bind="winDatePicker: {current: date}"></div>
+    <input type="text" data-bind="value: date" />
+
+    <br /><br />
+    <h2>FlipView</h2>
+    <div class="flipView" data-bind="winFlipView: {itemTemplate: templateName, itemDataSource: flipViewArray}"></div>
+    <button data-bind="click: pushItem">Push</button>
+    <button data-bind="click: popItem">Pop</button>
+    <div>
+        <span>Template name: </span><input type="text" data-bind="value: templateName" />
+    </div>
+
+    <br /><br />
+    <h2>Flyout</h2>
+    <div data-bind="winFlyout: {anchor: flyoutAnchor, placement: 'right'}">
+        <div>This is a flyout</div>
+    </div>
+    <input id="a" type="button" value="#a" />
+    <input id="b" type="button" value="#b" />
+    <input type="text" data-bind="value: flyoutAnchor" />
+
+    <br /><br />
+    <h2>Hub and HubSections</h2>
+    <div class="hub" data-bind="winHub">
+        <div class="hubSection" data-bind="winHubSection: {header: 'Section1'}">
+        </div>
+        <div class="hubSection" data-bind="winHubSection: {header: 'Section2'}"></div>
+        <div class="hubSection" data-bind="winHubSection: {header: 'Section3'}"></div>
+    </div>
+
+    <br /><br />
+    <h2>Item Container</h2>
+    <div data-bind="foreach: ratings">
+        <div class="item" data-bind="winItemContainer: {swipeBehavior: 'select', swipeOrientation: 'horizontal', selected: selected}">
+            <div class="content"><span>Person: </span><span data-bind="text: text"></span>&nbsp;
+            <span>Rating: </span><span data-bind="text: rating"></span>&nbsp;
+            <span>Selected: </span><span data-bind="text: selected"></span></div>
+        </div>
+    </div>
+
+    <br /><br />
+    <h2>ListView</h2>
+    <div>
+        <span>Number of items: </span><span data-bind="text: listViewArray().length"></span>
+    </div>
+    <div class="listView" data-bind="winListView: {itemTemplate: 'listViewItemTemplate', itemDataSource: listViewArray, layout: {type: WinJS.UI.GridLayout}}"></div>
+    <button data-bind="click: listViewUnshift">Unshift</button>
+    <button data-bind="click: listViewShift">Shift</button>
+    <button data-bind="click: listViewReplace">Replace</button>
+    <button data-bind="click: listViewPush">Push</button>
+    <button data-bind="click: listViewPop">Pop</button>
+
+    <br /><br />
+    <h2>Menu</h2>
+    <div data-bind="winMenu: {anchor: menuAnchor, placement: 'right', commands: [{id: 'menu1', label: 'Menu1', type: 'button'}]}">
+    </div>
+    <input id="c" type="button" value="#c" />
+    <input id="d" type="button" value="#d" />
+    <input type="text" data-bind="value: menuAnchor" />
+
+    <br /><br />
+    <h2>Menu with inline commands</h2>
+    <div data-bind="winMenu: {anchor: menuAnchorInline, placement: 'right' }">
+        <button data-bind="winMenuCommand: {id: 'menu2', label: 'Menu2', type: 'button'}"></button>
+        <hr data-bind="winMenuCommand: {type: 'separator'}" />
+        <button data-bind="winMenuCommand: {id: 'menu3', label: 'Menu3', type: 'button'}"></button>
+    </div>
+    <input id="e" type="button" value="#e" />
+    <input id="f" type="button" value="#f" />
+    <input type="text" data-bind="value: menuAnchorInline" />
+
+    <br /><br />
+    <h2>NavBar, NavBarContainer, and NavBarCommands</h2>
+    <div>Note: Right click to see the NavBar</div>
+    <div data-bind="winNavBar">
+        <div data-bind="winNavBarContainer">
+            <div data-bind="winNavBarCommand: {label: 'Navigation Item', icon: 'add'}"></div>
+        </div>
+    </div>
+
+    <br /><br />
+    <h2>Rating Control</h2>
+    <div data-bind="winRating: {userRating: userRating}"></div>
+    <input type="text" data-bind="value: userRating, valueUpdate: 'afterkeydown'" />
+
+    <br /><br />
+    <div data-bind="foreach: ratings">
+        <div><span>Person: </span><span data-bind="text: text"></span>&nbsp;<span>Rating: </span><span data-bind="text: rating"></span></div>
+        <div data-bind="winRating: {userRating: rating}"></div>
+    </div>
+
+    <br /><br />
+    <h2>Search Box</h2>
+    <div data-bind="winSearchBox"></div>
+
+    <br /><br />
+    <h2>Toggle Switch</h2>
+    <div data-bind="winToggleSwitch: {checked: toggleValue, title: toggleTitle, labelOff: toggleLabelOff, labelOn: 'world'}"></div>
+    <input type="checkbox" data-bind="checked: toggleValue" />
+    <input type="text" data-bind="value: toggleTitle, valueUpdate: 'afterkeydown'" />
+    <input type="text" data-bind="value: toggleLabelOff, valueUpdate: 'afterkeydown'" />
+
+    <br /><br />
+    <h2>Time Picker</h2>
+    <div data-bind="winTimePicker: {current: time}"></div>
+    <input type="text" data-bind="value: time" />
+
+    <br /><br />
+    <div data-bind="winTooltip: {innerHTML: toolTipContent}">
+        <div>Hover for the tool tip</div>
+    </div>
+    
+    <div data-bind="winTooltip: {contentElement: '#tip', infotip: true}">
+        <div>Hover for infoTip</div>
+    </div>
+    <div style="display: none">
+        <div id="tip">
+            <div>Tooltip only allows one time binding of with contentElement:</div>
+            <div data-bind="text: toolTipContent"></div>
+        </div>
+    </div>
+    <input type="text" data-bind="value: toolTipContent, valueUpdate: 'afterkeydown'" />
+
+    <script type="text/html" id="flipViewTemplate">
+        <div>
+            <span>Name: </span><span data-bind="text: text"></span>
+        </div>
+        <div>
+            <span>Rating: </span><span data-bind="text: rating"></span>
+        </div>
+    </script>
+    <script type="text/html" id="pink">
+        <div class="pink">
+            <div>
+                <span>Name: </span><span data-bind="text: text"></span>
+            </div>
+            <div>
+                <span>Rating: </span><div data-bind="winRating: {userRating: rating}"></div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="listViewItemTemplate">
+        <div class="listViewItem">
+            <div>
+                <span>Name: </span><span data-bind="text: text"></span>
+            </div>
+            <div>
+                <span>Rating: </span><span data-bind="text: rating"></span>
+            </div>
+        </div>
+    </script>
+</body>
+</html>

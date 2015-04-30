@@ -1,0 +1,58 @@
+﻿.backButtonSpacer {
+    height: 100px;
+}
+
+body {
+    overflow: auto;
+}
+
+.item {
+    height: 50px;
+    width: 500px;
+    margin-left: 5px;
+    margin-bottom: 5px
+}
+
+    .item .content {
+        margin: 10px;
+    }
+
+
+.hub {
+    height: 498px;
+    width: calc(100% - 2px);
+    border: solid 1px #fff;
+}
+
+.win-hub-section-content {
+    width: 500px;
+    outline: dashed 1px #fff;
+}
+
+.flipView {
+    width: 200px;
+    height: 200px;
+    border: solid 1px #fff;
+}
+
+.pink {
+    background-color: pink;
+}
+
+
+.listView .win-container {
+    width: 150px;
+    height: 100px;
+}
+.listViewItem {
+    width: 138px;
+    height: 88px;
+    padding: 5px;
+    border: dashed 1px #fff;
+}
+
+.listView {
+    height: 220px;
+    width: 500px;
+    border: solid 1px #fff;
+}
