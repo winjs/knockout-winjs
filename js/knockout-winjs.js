@@ -139,12 +139,24 @@
         if (!oldValue) {
             var bindingList = new WinJS.Binding.List(unpacked);
             value.subscribe(function (newValue) {
+                var item;
+                var removeOffset = 0;
+    
+                // remove first, splice changes list in place so index of off!
                 for (var i = 0, len = newValue.length; i < len; i++) {
-                    var item = newValue[i];
+                    item = newValue[i];
                     switch (item.status) {
                         case "deleted":
-                            bindingList.splice(item.index, 1);
+                            bindingList.splice(item.index - removeOffset, 1);
+                            removeOffset += 1;
                             break;
+                    }
+                }
+    
+                // add other, index may be off due to removals?
+                for (var i = 0, len = newValue.length; i < len; i++) {
+                    item = newValue[i];
+                    switch (item.status) {
                         case "added":
                             if (item.index === len) {
                                 bindingList.push(item.value);
@@ -158,10 +170,10 @@
                     }
                 }
             }, this, "arrayChange");
-
+            
             retVal = bindingList.dataSource;
         }
-
+        
         return retVal;
     }
 
