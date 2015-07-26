@@ -1,0 +1,27 @@
+{
+  "name": "knockout-winjs",
+  "version": "1.0.0",
+  "description": "Project to smooth the Knockout/WinJS interaction",
+  "main": "js/knockout-winjs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WinJS",
+    "knockout"
+  ],
+  "author": "Microsoft Corporation and other contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winjs/knockout-winjs.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/winjs/knockout-winjs/issues"
+  },
+  "homepage": "https://github.com/winjs/knockout-winjs",
+  "devDependencies": {
+    "knockout": "^3.3.0",
+    "winjs": "4.1.x"
+  }
+}
