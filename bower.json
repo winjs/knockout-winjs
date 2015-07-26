@@ -1,0 +1,23 @@
+{
+  "name": "knockout-winjs",
+  "main": "js/knockout-winjs.js",
+  "homepage": "https://github.com/winjs/knockout-winjs",
+  "authors": [
+    "Microsoft Corporation and other contributors"
+  ],
+  "description": "Project to smooth the Knockout/WinJS interaction",
+  "keywords": [
+    "WinJS",
+    "knockout"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "package.json",
+    "*.nuspec"
+  ]
+}
