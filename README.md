@@ -1,9 +1,9 @@
 knockout-winjs
 =============
 
-This project is a work in progress.
-
-Project to smooth the KnockoutJS/WinJS interaction, this code is a shim layer which facilitates usage of WinJS UI controls in an Knockout Windows application. It achieves this by creating bindings for the various controls which allow them to show up in Knockout data-bind attributes like:
+Adapter for KnockoutJS and WinJS, this code facilitates usage of WinJS UI controls in a
+Knockout application. It achieves this by creating bindings for the various controls
+which allow them to show up in Knockout data-bind attributes like:
 
     The current rating is: <span data-bind="text: userRating"></span><br/>
     <div data-bind="winRating: {userRating: userRating}"></div>
@@ -11,14 +11,14 @@ Project to smooth the KnockoutJS/WinJS interaction, this code is a shim layer wh
 How to use this in your Knockout project?
 ----------------------------------------
 
-Just make sure to include WinJS 2.0, and then include the shim.
+Just make sure to include WinJS 4.1, and then include the adapter.
 
-    <link href="//Microsoft.WinJS.2.0/css/ui-dark.css" rel="stylesheet" />
-    <script src="//Microsoft.WinJS.2.0/js/base.js"></script>
-    <script src="//Microsoft.WinJS.2.0/js/ui.js"></script>
-    <script src="/js/knockout-winjs.js"></script>
+    <link href="winjs/css/ui-dark.css" rel="stylesheet" />
+    <script src="winjs/js/base.js"></script>
+    <script src="winjs/js/ui.js"></script>
+    <script src="js/knockout-winjs.js"></script>
 
-__Note: this shim library has only been tested against Knockout 3.0+.__
+__Note: this adapter library has only been tested against Knockout 3.3+.__
 
 Examples of control usage
 -------------------------
@@ -30,10 +30,18 @@ Examples of control usage
         <button data-bind="winAppBarCommand: {label: 'AppBarButton', type: 'button', icon:'add'}"></button>
     </div>
 
+### AutoSuggestBox
+
+    <div data-bind="winAutoSuggestBox"></div>
+
 ### BackButton
 
     <!-- Won't show up unless you use WinJS.Navigation stack -->
     <button data-bind="winBackButton"></button>
+
+### ContentDialog
+
+    <div data-bind="winContentDialog"></div>
 
 ### DatePicker
 
@@ -109,14 +117,36 @@ Examples of control usage
       </div>
     </div>
 
+### Pivot
+
+    <div data-bind="winPivot, event: { itemanimationend: itemAnimationEndHandler }">
+        <div data-bind="winPivotItem: { header: 'Header1' }">Item1</div>
+        <div data-bind="winPivotItem: { header: 'Header2' }">Item2</div>
+    </div>
+
 ### Rating
 
     The current rating is: <span data-bind="text: userRating"></span><br/>
     <div data-bind="winRating: {userRating: userRating}"></div>
 
-### SearchBox
+### SemanticZoom
 
-    <div data-bind="winSearchBox"></div>
+    <div data-bind="winSemanticZoom">
+        <div data-bind="winListView: { itemDataSource: zoomedInSource.dataSource, groupDataSource: zoomedInSource.groups.dataSource }"></div>
+        <div data-bind="winListView: { itemDataSource: zoomedOutSource.dataSource }"></div>
+    </div>
+
+### SplitView
+
+    <div data-bind="winSplitView">
+        <div class="paneNode">SplitView pane area</div>
+        <div class="aContentNode">Text for the SplitView content area</div>
+        <div class="anotherContentNode">More text for the SplitView content area</div>
+    </div>
+
+### SplitViewPaneToggle
+
+    <button data-bind="winSplitViewPaneToggle: { splitView: splitViewElement }"></button>
 
 ### TimePicker
 
@@ -125,6 +155,13 @@ Examples of control usage
 ### ToggleSwitch
     
     <div data-bind="winToggleSwitch: {checked: toggleValue, title: toggleTitle, labelOff: toggleLabelOff, labelOn: 'world'}"></div>
+
+### ToolBar
+
+    <div data-bind="winToolBar">
+        <button data-bind="winCommand"></button>
+        <button data-bind="winCommand"></button>
+    </div>
 
 ### Tooltip
 
