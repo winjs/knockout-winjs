@@ -4,7 +4,7 @@
         <id>Knockout.WinJS</id>
         <version>1.0.0</version>
         <authors>Microsoft Corporation and other contributors</authors>
-    	<licenseUrl>https://raw.githubusercontent.com/winjs/knockout-winjs/master/LICENSE</licenseUrl>
+        <licenseUrl>https://raw.githubusercontent.com/winjs/knockout-winjs/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/winjs/knockout-winjs</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>Project to smooth the Knockout/WinJS interaction</description>
