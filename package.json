@@ -4,7 +4,10 @@
   "description": "Project to smooth the Knockout/WinJS interaction",
   "main": "js/knockout-winjs.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.config.js"
+  },
+  "directories": {
+    "test": "test"
   },
   "keywords": [
     "WinJS",
@@ -21,6 +24,10 @@
   },
   "homepage": "https://github.com/winjs/knockout-winjs",
   "devDependencies": {
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.12.37",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-compress": "^0.13.0",
