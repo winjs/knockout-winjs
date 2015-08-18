@@ -107,15 +107,6 @@ Examples of control usage
       <hr data-bind="winMenuCommand: {type: 'separator'}" />
       <button data-bind="winMenuCommand: {id: 'menu3', label: 'Menu3', type: 'button'}"></button>
     </div>
-    
-### NavBar and friends
-
-    <!-- Shows up on the top of the screen, use right-click or touch edgy gesture to show -->
-    <div data-bind="winNavBar">
-      <div data-bind="winNavBarContainer">
-        <div data-bind="winNavBarCommand: {label: 'Navigation Item', icon: 'add'}"></div>
-      </div>
-    </div>
 
 ### Pivot
 
@@ -139,7 +130,11 @@ Examples of control usage
 ### SplitView
 
     <div data-bind="winSplitView">
-        <div class="paneNode">SplitView pane area</div>
+        <div class="paneNode">
+            SplitView pane area
+            <button data-bind="winSplitViewCommand: {label: 'Home', icon: 'home', oninvoked: goToHome}"></button>
+            <button data-bind="winSplitViewCommand: {label: 'Settings', icon: 'settings', oninvoked: goToSettings}"></button>
+        </div>
         <div class="aContentNode">Text for the SplitView content area</div>
         <div class="anotherContentNode">More text for the SplitView content area</div>
     </div>

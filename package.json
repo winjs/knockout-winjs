@@ -1,6 +1,6 @@
 {
   "name": "knockout-winjs",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Project to smooth the Knockout/WinJS interaction",
   "main": "js/knockout-winjs.js",
   "scripts": {
@@ -35,6 +35,6 @@
     "grunt-github-releaser": "^0.1.17",
     "grunt-nuget": "^0.1.4",
     "knockout": "^3.3.0",
-    "winjs": "4.1.x"
+    "winjs": "4.2.x"
   }
 }

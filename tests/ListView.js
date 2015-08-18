@@ -143,6 +143,16 @@ describe("ListView control directive tests", function () {
 
         expect(compiledControl.winControl.maxDeferredItemCleanup).toEqual(10);
     });
+    
+    it("should use the maxLeadingPages attribute", function () {
+        var compiledControl = initControl("<div data-bind='winListView: { maxLeadingPages: 7 }'></div>");
+        expect(compiledControl.winControl.maxLeadingPages).toEqual(7);
+    });
+    
+    it("should use the maxTrailingPages attribute", function () {
+        var compiledControl = initControl("<div data-bind='winListView: { maxTrailingPages: 7 }'></div>");
+        expect(compiledControl.winControl.maxTrailingPages).toEqual(7);
+    });
 
     it("should use the currentItem attribute", function () {
         var ControlModel = function () {
@@ -186,6 +196,21 @@ describe("ListView control directive tests", function () {
             expect(compiledControl.winControl.layout instanceof WinJS.UI.ListLayout).toBeTruthy();
             done();
         });
+    });
+    
+    it("should use the onAccessibilityAnnotationComplete event", function (done) {
+        var ControlModel = function () {
+            this.testDataSource = generateTestKOArray(testDataSourceLength);
+            this.handler = function (e) {
+                done();
+            };
+        };
+        var model = new ControlModel();
+        var compiledControl = initControl("<div data-bind='winListView: { itemDataSource: testDataSource, itemTemplate: \"template\", onaccessibilityannotationcomplete: handler }'>" +
+                                          "</div>" +
+                                          "<script id=\"template\" type=\"text/html\">" +
+                                              "<span data-bind='text: title' >" +
+                                          "</script>", model);
     });
 
     it("should use the onContentAnimating event", function (done) {
