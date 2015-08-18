@@ -387,11 +387,6 @@
             bindDescendantsBeforeParent: true
         },
         MenuCommand: {},
-        NavBar: {},
-        NavBarCommand: {},
-        NavBarContainer: {
-            bindDescendantsBeforeParent: true
-        },
         Pivot: {
             bindDescendantsBeforeParent: true,
             propertyProcessor: {
@@ -427,6 +422,7 @@
             bindDescendantsBeforeParent: true
         },
         SplitView: {},
+        SplitViewCommand: {},
         SplitViewPaneToggle: {},
         TimePicker: {},
         ToggleSwitch: {},
