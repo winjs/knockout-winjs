@@ -35,6 +35,6 @@
     "grunt-github-releaser": "^0.1.17",
     "grunt-nuget": "^0.1.4",
     "knockout": "^3.3.0",
-    "winjs": "4.2.x"
+    "winjs": "4.3.x"
   }
 }
