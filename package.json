@@ -1,6 +1,6 @@
 {
   "name": "knockout-winjs",
-  "version": "2.0.0",
+  "version": "2.3.0",
   "description": "Project to smooth the Knockout/WinJS interaction",
   "main": "js/knockout-winjs.js",
   "scripts": {
