@@ -11,7 +11,7 @@ which allow them to show up in Knockout data-bind attributes like:
 How to use this in your Knockout project?
 ----------------------------------------
 
-Just make sure to include WinJS 4.3, and then include the adapter.
+Just make sure to include WinJS, and then include the adapter.
 
     <link href="winjs/css/ui-dark.css" rel="stylesheet" />
     <script src="winjs/js/base.js"></script>
